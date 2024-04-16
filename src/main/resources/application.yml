@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:test
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  liquibase:
+    change-log: classpath:/db/changelog/master.xml
+jws:
+  sharedKey: 154dda8b-1af8-4219-92c8-017d0cfbc5fb
+

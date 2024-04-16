@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+    <changeSet id="0003" author="kondi">
+        <createTable tableName="completed_quiz">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="completed_at" type="DATETIME"/>
+            <column name="completed_by" type="VARCHAR(50)"/>
+            <column name="quiz_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="completed_quiz"
+                                 baseColumnNames="quiz_id"
+                                 constraintName="fk_completed_quiz_quiz_id"
+                                 referencedTableName="quiz"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>
